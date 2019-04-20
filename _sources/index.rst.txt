@@ -1,0 +1,231 @@
+.. FREEIK documentation master file, created by
+   sphinx-quickstart on Sun Mar 31 18:38:31 2019.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to the FREEIK documentation!
+======================================
+
+
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+
+
+
+.. |img| image:: test.png
+   :width: 100%
+
+.. |preferences| image:: preferences.jpg
+.. |pie_menu| image:: pie_menu.jpg
+.. |parenting| image:: parenting.jpg
+.. |set_parent| image:: set_parent.jpg
+.. |bake| image:: bake.jpg
+.. |clear_links| image:: clear_links.jpg
+.. |make_links| image:: make_links.jpg
+.. |pin| image:: pin.jpg
+.. |link| image:: link.jpg
+.. |node_panel| image:: node_panel.jpg
+.. |link_panel| image:: link_panel.jpg
+.. |scene_panel| image:: scene_panel.jpg
+.. |parent_type| image:: parent_type.jpg
+.. |keyset| image:: keyset.jpg
+.. |transform| image:: transform.jpg
+.. |overlay| image:: overlay.jpg
+
+.. |welcome| image:: welcome.gif
+
+|welcome|
+
+
+Install
+=======
+Install like any other Blender addon.
+After installing you can set a shortcut for the FREEIK pie menu in the addon preferences.
+
+|preferences|
+
+Here is the pie menu itself.
+
+|pie_menu|
+
+It contains most functions of this addon.
+
+
+
+Rig a model
+===========
+To rig a model select its armature, start the pie menu and hit **Make links** button.
+
+This operator connects all bones with ball-socket constraints, basing on their hierarchy.
+
+|make_links|
+
+If your armature has animation, check **Adapt animation** in its settings.
+This checkbox creates a new action and bakes original animation into it
+
+.. warning::
+   Do not rename the bones after rig is done
+
+
+If you wanna connect bones which are not parented to each other select two bones and place 3D cursor where constraint should be.
+Then hit **Make links**  and select **Two objects** mode in its settings. This mode also works with objects
+
+Also, see video about rigging characters with loops in skeleton:
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/qJztMaGTJ_k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Posing
+======
+
+When you are done with rigging it's time to pose your model.
+You can move, rotate and scale bones as you wish.
+Also, you can pin and unpin any bone using corresponding buttons from the pie menu.
+
+|pin|
+
+.. warning::
+   Not uniform scale of armature object may lead to strange behavior
+
+
+
+Parenting
+=========
+|parenting|
+
+You can parent bone to any other bone only if they are directly or indirectly connected.
+
+Any bone can have two parents: for posing and for playback.
+Pose parent is used only when posing and doesn't affect the animation.
+
+Playback parent affects animation and doesn't used when posing. It is needed for correct interpolation between frames.
+
+
+You can set pose parents of selected bones using **Set pose parent** button.
+
+
+If you want to set playback parent , change the mode in operator settings to **Playback parent**
+
+|set_parent|
+
+Here is how **Selected to active** checkbox affects parenting:
+
+|parent_type|
+
+To clear parents of selected bones use **Clear pose parent** button
+
+Also, you can choose which properties should be inherited from **Parent settings** menu (only affects pose parenting)
+
+
+Animation
+=========
+
+Unlike generic bones, bones rigged with FREEIK may have an extra rotation channel that should be keyed.
+
+|transform|
+
+To do this, i recommend to install this `addon <https://github.com/xbodya13/compact_keyframe_insert_menu>`_
+
+When you install it,you'll find out two extra properties in **Transform** keying set settings.
+
+|keyset|
+
+**Local** - insert keyframes on local rotation of selected bones
+
+**Linked** - insert keyframes on all bones which are connected to selected ones
+
+
+
+Also, every bone has **Pinned** property. It can be found in bone settings.
+
+|node_panel|
+
+Pinned bones work similarly to IK targets in normal rigs.
+
+To animate this property you can use these buttons from the pie menu
+
+|pin|
+
+**+**- insert keyframe on **Pinned** property of selected bones
+
+**-**- delete single keyframe
+
+**X**- delete all keyframes
+
+.. important::
+   Always key transformation on all bones of the rig on frames where **Pinned** property changing
+
+See how all this works in this video:
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/rY2MrpxW7WU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Splitting
+=========
+
+Every constraint has **Enabled** property. Using it, you can split your rig into parts.
+This property can be found in object properties of the constraint.
+
+|link_panel|
+
+To animate this property you can use corresponding buttons from the pie menu.
+
+|link|
+
+
+.. important::
+   Always key transformation on all bones of the rig on frames where **Enabled** property changing
+
+
+
+
+Optimization
+============
+FREEIK rig is quite heavy now.
+
+For performance reason, it is better to have less then 100 active constrained bones in the scene (approximately 2 generic humanoid characters).
+
+If you want many characters in the scene at the same time, you can bake the animation and disable rig on characters which you are not editing right now.
+
+To bake animation select character and press **Bake** button from the pie menu.
+To disable rig press red lamp from the same menu.
+
+**Bake** operator creates a new action and bakes animation into it.
+
+If you want back to editing, switch to original action and enable rig using a green lamp from the pie menu.
+
+Also, you can set solver iterations count or disable solver for entire scene from the scene settings
+
+|scene_panel|
+
+Clear rig
+=========
+To clear rig use **Clear links** button.
+This operator turns back FREEIK rig to the basic armature.
+
+Here are its settings
+
+|clear_links|
+
+**Make hierarchy** - if checked, bones will have parents
+**Connected bones** - if bone has a parent,bone's head is stuck to the parent's tail
+**Adapt animation** - if checked, bakes character animation before removing constraints
+
+
+.. warning::
+   If bones have not uniform scale and **Make hierarchy** is checked, their resulting transformations will significantly differ from original
+
+
+Overlay
+=======
+
+From the overlay panel you can show or hide FREEIK overlays
+
+|overlay|
+

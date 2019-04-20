@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to the FREEIK documentation! &mdash; FREEIK 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="FREEIK 1.0 documentation" href="#"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> FREEIK
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Welcome to the FREEIK documentation!</a></li>
+<li><a class="reference internal" href="#install">Install</a></li>
+<li><a class="reference internal" href="#rig-a-model">Rig a model</a></li>
+<li><a class="reference internal" href="#posing">Posing</a></li>
+<li><a class="reference internal" href="#parenting">Parenting</a></li>
+<li><a class="reference internal" href="#animation">Animation</a></li>
+<li><a class="reference internal" href="#splitting">Splitting</a></li>
+<li><a class="reference internal" href="#optimization">Optimization</a></li>
+<li><a class="reference internal" href="#clear-rig">Clear rig</a></li>
+<li><a class="reference internal" href="#overlay">Overlay</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">FREEIK</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Welcome to the FREEIK documentation!</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-the-freeik-documentation">
+<h1>Welcome to the FREEIK documentation!<a class="headerlink" href="#welcome-to-the-freeik-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p><img alt="welcome" src="_images/welcome.gif" /></p>
+</div>
+<div class="section" id="install">
+<h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
+<p>Install like any other Blender addon.
+After installing you can set a shortcut for the FREEIK pie menu in the addon preferences.</p>
+<p><img alt="preferences" src="_images/preferences.jpg" /></p>
+<p>Here is the pie menu itself.</p>
+<p><img alt="pie_menu" src="_images/pie_menu.jpg" /></p>
+<p>It contains most functions of this addon.</p>
+</div>
+<div class="section" id="rig-a-model">
+<h1>Rig a model<a class="headerlink" href="#rig-a-model" title="Permalink to this headline">¶</a></h1>
+<p>To rig a model select its armature, start the pie menu and hit <strong>Make links</strong> button.</p>
+<p>This operator connects all bones with ball-socket constraints, basing on their hierarchy.</p>
+<p><img alt="make_links" src="_images/make_links.jpg" /></p>
+<p>If your armature has animation, check <strong>Adapt animation</strong> in its settings.
+This checkbox creates a new action and bakes original animation into it</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Do not rename the bones after rig is done</p>
+</div>
+<p>If you wanna connect bones which are not parented to each other select two bones and place 3D cursor where constraint should be.
+Then hit <strong>Make links</strong>  and select <strong>Two objects</strong> mode in its settings. This mode also works with objects</p>
+<p>Also, see video about rigging characters with loops in skeleton:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qJztMaGTJ_k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<div class="section" id="posing">
+<h1>Posing<a class="headerlink" href="#posing" title="Permalink to this headline">¶</a></h1>
+<p>When you are done with rigging it’s time to pose your model.
+You can move, rotate and scale bones as you wish.
+Also, you can pin and unpin any bone using corresponding buttons from the pie menu.</p>
+<p><img alt="pin" src="_images/pin.jpg" /></p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Not uniform scale of armature object may lead to strange behavior</p>
+</div>
+</div>
+<div class="section" id="parenting">
+<h1>Parenting<a class="headerlink" href="#parenting" title="Permalink to this headline">¶</a></h1>
+<p><img alt="parenting" src="_images/parenting.jpg" /></p>
+<p>You can parent bone to any other bone only if they are directly or indirectly connected.</p>
+<p>Any bone can have two parents: for posing and for playback.
+Pose parent is used only when posing and doesn’t affect the animation.</p>
+<p>Playback parent affects animation and doesn’t used when posing. It is needed for correct interpolation between frames.</p>
+<p>You can set pose parents of selected bones using <strong>Set pose parent</strong> button.</p>
+<p>If you want to set playback parent , change the mode in operator settings to <strong>Playback parent</strong></p>
+<p><img alt="set_parent" src="_images/set_parent.jpg" /></p>
+<p>Here is how <strong>Selected to active</strong> checkbox affects parenting:</p>
+<p><img alt="parent_type" src="_images/parent_type.jpg" /></p>
+<p>To clear parents of selected bones use <strong>Clear pose parent</strong> button</p>
+<p>Also, you can choose which properties should be inherited from <strong>Parent settings</strong> menu (only affects pose parenting)</p>
+</div>
+<div class="section" id="animation">
+<h1>Animation<a class="headerlink" href="#animation" title="Permalink to this headline">¶</a></h1>
+<p>Unlike generic bones, bones rigged with FREEIK may have an extra rotation channel that should be keyed.</p>
+<p><img alt="transform" src="_images/transform.jpg" /></p>
+<p>To do this, i recommend to install this <a class="reference external" href="https://github.com/xbodya13/compact_keyframe_insert_menu">addon</a></p>
+<p>When you install it,you’ll find out two extra properties in <strong>Transform</strong> keying set settings.</p>
+<p><img alt="keyset" src="_images/keyset.jpg" /></p>
+<p><strong>Local</strong> - insert keyframes on local rotation of selected bones</p>
+<p><strong>Linked</strong> - insert keyframes on all bones which are connected to selected ones</p>
+<p>Also, every bone has <strong>Pinned</strong> property. It can be found in bone settings.</p>
+<p><img alt="node_panel" src="_images/node_panel.jpg" /></p>
+<p>Pinned bones work similarly to IK targets in normal rigs.</p>
+<p>To animate this property you can use these buttons from the pie menu</p>
+<p><img alt="pin" src="_images/pin.jpg" /></p>
+<p><strong>+</strong>- insert keyframe on <strong>Pinned</strong> property of selected bones</p>
+<p><strong>-</strong>- delete single keyframe</p>
+<p><strong>X</strong>- delete all keyframes</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Always key transformation on all bones of the rig on frames where <strong>Pinned</strong> property changing</p>
+</div>
+<p>See how all this works in this video:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rY2MrpxW7WU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<div class="section" id="splitting">
+<h1>Splitting<a class="headerlink" href="#splitting" title="Permalink to this headline">¶</a></h1>
+<p>Every constraint has <strong>Enabled</strong> property. Using it, you can split your rig into parts.
+This property can be found in object properties of the constraint.</p>
+<p><img alt="link_panel" src="_images/link_panel.jpg" /></p>
+<p>To animate this property you can use corresponding buttons from the pie menu.</p>
+<p><img alt="link" src="_images/link.jpg" /></p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Always key transformation on all bones of the rig on frames where <strong>Enabled</strong> property changing</p>
+</div>
+</div>
+<div class="section" id="optimization">
+<h1>Optimization<a class="headerlink" href="#optimization" title="Permalink to this headline">¶</a></h1>
+<p>FREEIK rig is quite heavy now.</p>
+<p>For performance reason, it is better to have less then 100 active constrained bones in the scene (approximately 2 generic humanoid characters).</p>
+<p>If you want many characters in the scene at the same time, you can bake the animation and disable rig on characters which you are not editing right now.</p>
+<p>To bake animation select character and press <strong>Bake</strong> button from the pie menu.
+To disable rig press red lamp from the same menu.</p>
+<p><strong>Bake</strong> operator creates a new action and bakes animation into it.</p>
+<p>If you want back to editing, switch to original action and enable rig using a green lamp from the pie menu.</p>
+<p>Also, you can set solver iterations count or disable solver for entire scene from the scene settings</p>
+<p><img alt="scene_panel" src="_images/scene_panel.jpg" /></p>
+</div>
+<div class="section" id="clear-rig">
+<h1>Clear rig<a class="headerlink" href="#clear-rig" title="Permalink to this headline">¶</a></h1>
+<p>To clear rig use <strong>Clear links</strong> button.
+This operator turns back FREEIK rig to the basic armature.</p>
+<p>Here are its settings</p>
+<p><img alt="clear_links" src="_images/clear_links.jpg" /></p>
+<p><strong>Make hierarchy</strong> - if checked, bones will have parents
+<strong>Connected bones</strong> - if bone has a parent,bone’s head is stuck to the parent’s tail
+<strong>Adapt animation</strong> - if checked, bakes character animation before removing constraints</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If bones have not uniform scale and <strong>Make hierarchy</strong> is checked, their resulting transformations will significantly differ from original</p>
+</div>
+</div>
+<div class="section" id="overlay">
+<h1>Overlay<a class="headerlink" href="#overlay" title="Permalink to this headline">¶</a></h1>
+<p>From the overlay panel you can show or hide FREEIK overlays</p>
+<p><img alt="overlay" src="_images/overlay.jpg" /></p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, xbodya13.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
