@@ -167,19 +167,21 @@
 </div>
 <div class="section" id="install">
 <h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
-<p>Install like any other Blender addon.
-After installing you can set a shortcut for the FREEIK pie menu in the addon preferences.</p>
+<p>Install FREEIK like any other Blender addon.</p>
+<p>After installing you can set a shortcuts from the addon preferences.</p>
 <p><img alt="preferences" src="_images/preferences.jpg" /></p>
-<p>Here is the pie menu itself.</p>
-<p><img alt="pie_menu" src="_images/pie_menu.jpg" /></p>
-<p>It contains most functions of this addon.</p>
+<p>Then install this <a class="reference external" href="https://github.com/xbodya13/compact_keyframe_insert_menu">addon</a></p>
+<p>It provides a special keying set ,called <strong>Transform</strong> that is needed to animate with FREEIK</p>
 </div>
 <div class="section" id="rig-a-model">
 <h1>Rig a model<a class="headerlink" href="#rig-a-model" title="Permalink to this headline">¶</a></h1>
-<p>To rig a model select its armature, start the pie menu and hit <strong>Make links</strong> button.</p>
+<p>Here is the pie menu.</p>
+<p><img alt="pie_menu" src="_images/pie_menu.jpg" /></p>
+<p>It contains most functions of this addon.</p>
+<p>To rig a model select its armature and hit <strong>Make links</strong> button.</p>
 <p>This operator connects all bones with ball-socket constraints, basing on their hierarchy.</p>
 <p><img alt="make_links" src="_images/make_links.jpg" /></p>
-<p>If your armature has animation, check <strong>Adapt animation</strong> in its settings.
+<p>If your armature already has animation, check <strong>Adapt animation</strong> in its settings.
 This checkbox creates a new action and bakes original animation into it</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
@@ -203,6 +205,24 @@ Also, you can pin and unpin any bone using corresponding buttons from the pie me
 <p class="first admonition-title">Warning</p>
 <p class="last">Not uniform scale of armature object may lead to strange behavior</p>
 </div>
+<p>There are three posing modes:</p>
+<ul>
+<li><p class="first">Smooth</p>
+<p><a class="reference internal" href="_images/smooth.gif"><img alt="smooth" src="_images/smooth.gif" style="width: 60%;" /></a></p>
+</li>
+<li><p class="first">Rope</p>
+<p><a class="reference internal" href="_images/rope.gif"><img alt="rope" src="_images/rope.gif" style="width: 60%;" /></a></p>
+</li>
+<li><p class="first">Stretch</p>
+<p><a class="reference internal" href="_images/stretch.gif"><img alt="stretch" src="_images/stretch.gif" style="width: 60%;" /></a></p>
+<p>This mode can be used to achieve stretch and squash effect by adjusting the <strong>Stretch factor</strong> property that can be found in bone settings</p>
+<p><a class="reference internal" href="_images/stretch_highlight.jpg"><img alt="stretch_highlight" src="_images/stretch_highlight.jpg" style="width: 80%;" /></a></p>
+<p>See how stretch factor affects bone behavior</p>
+<p><a class="reference internal" href="_images/stretch_factor.gif"><img alt="stretch_factor" src="_images/stretch_factor.gif" style="width: 80%;" /></a></p>
+</li>
+</ul>
+<p>You can switch between posing modes using pie menu
+<img alt="change_mode" src="_images/change_mode.jpg" /></p>
 </div>
 <div class="section" id="parenting">
 <h1>Parenting<a class="headerlink" href="#parenting" title="Permalink to this headline">¶</a></h1>
@@ -221,16 +241,23 @@ Pose parent is used only when posing and doesn’t affect the animation.</p>
 </div>
 <div class="section" id="animation">
 <h1>Animation<a class="headerlink" href="#animation" title="Permalink to this headline">¶</a></h1>
-<p>Unlike generic bones, bones rigged with FREEIK may have an extra rotation channel that should be keyed.</p>
+<p>The animation workflow is pretty similar to usual armatures:</p>
+<p>Pose model-&gt; Key transformation of the bones-&gt;Go to another frame-&gt;Repeat</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">For nice interpolation it is better to key transformation on all bones of the character</p>
+</div>
+<p>But unlike the generic bones, bones rigged with FREEIK may have an extra rotation channel that should be keyed.</p>
 <p><img alt="transform" src="_images/transform.jpg" /></p>
-<p>To do this, i recommend to install this <a class="reference external" href="https://github.com/xbodya13/compact_keyframe_insert_menu">addon</a></p>
-<p>When you install it,you’ll find out two extra properties in <strong>Transform</strong> keying set settings.</p>
+<p>That’s why you need a special keying set called <strong>Transform</strong>,which is provided with this <a class="reference external" href="https://github.com/xbodya13/compact_keyframe_insert_menu">addon</a></p>
+<p>Here are its settings</p>
 <p><img alt="keyset" src="_images/keyset.jpg" /></p>
 <p><strong>Local</strong> - insert keyframes on local rotation of selected bones</p>
 <p><strong>Linked</strong> - insert keyframes on all bones which are connected to selected ones</p>
 <p>Also, every bone has <strong>Pinned</strong> property. It can be found in bone settings.</p>
 <p><img alt="node_panel" src="_images/node_panel.jpg" /></p>
 <p>Pinned bones work similarly to IK targets in normal rigs.</p>
+<p><a class="reference internal" href="_images/pinning.gif"><img alt="pinning" src="_images/pinning.gif" style="width: 80%;" /></a></p>
 <p>To animate this property you can use these buttons from the pie menu</p>
 <p><img alt="pin" src="_images/pin.jpg" /></p>
 <p><strong>+</strong>- insert keyframe on <strong>Pinned</strong> property of selected bones</p>
@@ -239,10 +266,6 @@ Pose parent is used only when posing and doesn’t affect the animation.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">Always key transformation on all bones of the rig on frames where <strong>Pinned</strong> property changing</p>
-</div>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Automatic keyframe insertion doesn’t work properly yet (will be fixed in next releases)</p>
 </div>
 <p>See how all this works in this video:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/rY2MrpxW7WU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
@@ -273,7 +296,7 @@ To disable rig press red lamp from the same menu.</p>
 <div class="section" id="clear-rig">
 <h1>Clear rig<a class="headerlink" href="#clear-rig" title="Permalink to this headline">¶</a></h1>
 <p>To clear rig use <strong>Clear links</strong> button.
-This operator turns back FREEIK rig to the basic armature.</p>
+This operator turns FREEIK rig back to the basic armature.</p>
 <p>Here are its settings</p>
 <p><img alt="clear_links" src="_images/clear_links.jpg" /></p>
 <p><strong>Make hierarchy</strong> - if checked, bones will have parents

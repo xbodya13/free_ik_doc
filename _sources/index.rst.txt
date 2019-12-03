@@ -21,6 +21,25 @@ Welcome to the FREEIK documentation!
 
 .. |preferences| image:: preferences.jpg
 .. |pie_menu| image:: pie_menu.jpg
+.. |change_mode| image:: change_mode.jpg
+
+.. |smooth| image:: smooth.gif
+   :width: 60%
+.. |rope| image:: rope.gif
+   :width: 60%
+.. |stretch| image:: stretch.gif
+   :width: 60%
+
+.. |stretch_factor| image:: stretch_factor.gif
+   :width: 80%
+
+.. |stretch_highlight| image:: stretch_highlight.jpg
+   :width: 80%
+
+.. |pinning| image:: pinning.gif
+   :width: 80%
+
+
 .. |parenting| image:: parenting.jpg
 .. |set_parent| image:: set_parent.jpg
 .. |bake| image:: bake.jpg
@@ -43,28 +62,40 @@ Welcome to the FREEIK documentation!
 
 Install
 =======
-Install like any other Blender addon.
-After installing you can set a shortcut for the FREEIK pie menu in the addon preferences.
+
+
+
+Install FREEIK like any other Blender addon.
+
+After installing you can set a shortcuts from the addon preferences.
 
 |preferences|
 
-Here is the pie menu itself.
+Then install this `addon <https://github.com/xbodya13/compact_keyframe_insert_menu>`_
 
-|pie_menu|
+It provides a special keying set ,called **Transform** that is needed to animate with FREEIK
 
-It contains most functions of this addon.
+
+
 
 
 
 Rig a model
 ===========
-To rig a model select its armature, start the pie menu and hit **Make links** button.
+
+Here is the pie menu.
+
+|pie_menu|
+
+It contains most functions of this addon.
+
+To rig a model select its armature and hit **Make links** button.
 
 This operator connects all bones with ball-socket constraints, basing on their hierarchy.
 
 |make_links|
 
-If your armature has animation, check **Adapt animation** in its settings.
+If your armature already has animation, check **Adapt animation** in its settings.
 This checkbox creates a new action and bakes original animation into it
 
 .. warning::
@@ -94,6 +125,30 @@ Also, you can pin and unpin any bone using corresponding buttons from the pie me
 
 .. warning::
    Not uniform scale of armature object may lead to strange behavior
+
+There are three posing modes:
+
+- Smooth
+
+  |smooth|
+- Rope
+
+  |rope|
+- Stretch
+
+  |stretch|
+
+  This mode can be used to achieve stretch and squash effect by adjusting the **Stretch factor** property that can be found in bone settings
+
+  |stretch_highlight|
+
+  See how stretch factor affects bone behavior
+
+  |stretch_factor|
+
+
+You can switch between posing modes using pie menu
+|change_mode|
 
 
 
@@ -128,13 +183,21 @@ Also, you can choose which properties should be inherited from **Parent settings
 Animation
 =========
 
-Unlike generic bones, bones rigged with FREEIK may have an extra rotation channel that should be keyed.
+The animation workflow is pretty similar to usual armatures:
+
+Pose model-> Key transformation of the bones->Go to another frame->Repeat
+
+.. tip::
+   For nice interpolation it is better to key transformation on all bones of the character
+
+
+But unlike the generic bones, bones rigged with FREEIK may have an extra rotation channel that should be keyed.
 
 |transform|
 
-To do this, i recommend to install this `addon <https://github.com/xbodya13/compact_keyframe_insert_menu>`_
+That's why you need a special keying set called **Transform**,which is provided with this `addon <https://github.com/xbodya13/compact_keyframe_insert_menu>`_
 
-When you install it,you'll find out two extra properties in **Transform** keying set settings.
+Here are its settings
 
 |keyset|
 
@@ -150,6 +213,9 @@ Also, every bone has **Pinned** property. It can be found in bone settings.
 
 Pinned bones work similarly to IK targets in normal rigs.
 
+|pinning|
+
+
 To animate this property you can use these buttons from the pie menu
 
 |pin|
@@ -163,8 +229,6 @@ To animate this property you can use these buttons from the pie menu
 .. important::
    Always key transformation on all bones of the rig on frames where **Pinned** property changing
 
-.. warning::
-   Automatic keyframe insertion doesn't work properly yet (will be fixed in next releases)
 
 See how all this works in this video:
 
@@ -213,7 +277,7 @@ Also, you can set solver iterations count or disable solver for entire scene fro
 Clear rig
 =========
 To clear rig use **Clear links** button.
-This operator turns back FREEIK rig to the basic armature.
+This operator turns FREEIK rig back to the basic armature.
 
 Here are its settings
 
